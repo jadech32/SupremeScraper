@@ -3,7 +3,7 @@ Scrapes the online shop for products, searched by name, color and category. This
 
 ## Installation:
 1. Clone via git or download as zip file
-2. Instal the requirements (done once per install)
+2. Install the requirements (done once per install)
 ```
      pip install -r requirements.txt
 ```
@@ -29,5 +29,5 @@ Scrapes the online shop for products, searched by name, color and category. This
 - Category: Third argument in the args tuple. This is just one string (has to be one of the categories from above).
 
 ### Tips
-- To be used with another bot (e.g. HeatedSneaks)
+- Recommended to be used with another bot (e.g. HeatedSneaks)
 - For US users, see UK product names for keywords and color.
