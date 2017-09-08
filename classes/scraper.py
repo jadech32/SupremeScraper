@@ -21,6 +21,8 @@ class Supreme:
         self.pants = 'http://www.supremenewyork.com/shop/all/pants'
         self.bags = 'http://www.supremenewyork.com/shop/all/bags'
         self.accessories = 'http://www.supremenewyork.com/shop/all/accessories'
+        self.shoes = 'http://www.supremenewyork.com/shop/all/shoes'
+        self.skate = 'http://www.supremenewyork.com/shop/all/skate'
 
     def returnType(self, type):
         return {
@@ -32,7 +34,9 @@ class Supreme:
             'hats': self.hats,
             'pants': self.pants,
             'bags': self.bags,
-            'accessories': self.accessories
+            'accessories': self.accessories,
+            'shoes': self.shoes,
+            'skate': self.skate
         }[type]
 
     def findItem(self, keywords, color, type):

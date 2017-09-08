@@ -11,8 +11,8 @@ if __name__ == '__main__':
     log('Initializing Script..', 'info')
     # Blimp, Hat
     t1 = threading.Thread(target=supreme.findItem, args=(['blimp'], ['white'], 'accessories'))
-    #t2 = threading.Thread(target=supreme.findItem, args=(['beanie','loose','reflective'], ['black'], 'hats'))
+    t2 = threading.Thread(target=supreme.findItem, args=(['gonz'], ['green'], 'skate'))
     t1.start()
-    #t2.start()
+    t2.start()
     t1.join()
-    #t2.join()
+    t2.join()

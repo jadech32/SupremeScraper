@@ -19,6 +19,8 @@ Scrapes the online shop for products, searched by name, color and category. This
 - pants
 - bags
 - accessories
+- shoes
+- skate
 
 ### Example Thread
 ```
