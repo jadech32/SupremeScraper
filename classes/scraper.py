@@ -4,13 +4,15 @@ import requests
 from bs4 import BeautifulSoup
 from classes.logger import Logger
 from classes.tools import Tools
+from classes.proxies import Proxy
 import webbrowser
 import time
 log = Logger().log
 tools = Tools()
+empty_warn = 0
 
 class Supreme:
-
+    proxy = Proxy()
     def __init__(self):
         self.jackets = 'http://www.supremenewyork.com/shop/all/jackets'
         self.shirts = 'http://www.supremenewyork.com/shop/all/shirts'
@@ -40,9 +42,22 @@ class Supreme:
         }[type]
 
     def findItem(self, keywords, color, type):
+
         session = requests.Session()
         url = self.returnType(type)
-        response = session.get(url)
+
+        if not self.proxy.getProxy():
+            global empty_warn
+            if empty_warn == 0:
+                log('Not using any proxies','yellow')
+                empty_warn = 1
+        else:
+            current_proxy = self.proxy.getProxy()[self.proxy.countProxy()]
+            log('Using proxy ' + str(current_proxy))
+            response = session.get(url, proxies=current_proxy)
+            if(response.status_code != 200):
+                log('Proxy banned','info')
+                self.findItem(keywords, color, type)
 
         soup = BeautifulSoup(response.content, 'html.parser')
         found = None
@@ -61,7 +76,7 @@ class Supreme:
 
         if found == None:
             log('Item not found/live... retrying', 'error')
-            time.sleep(0.5)
+            time.sleep(0.6)
             self.findItem(keywords, color, type)
 
 

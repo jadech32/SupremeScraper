@@ -8,11 +8,16 @@ log = Logger().log
 
 if __name__ == '__main__':
     supreme = Supreme()
+    # Make sure to IP Authenticate your proxies!
     log('Initializing Script..', 'info')
-    # Blimp, Hat
-    t1 = threading.Thread(target=supreme.findItem, args=(['blimp'], ['white'], 'accessories'))
-    t2 = threading.Thread(target=supreme.findItem, args=(['gonz'], ['green'], 'skate'))
+    # jackets, shirts, sweaters, tshirts, sweatshirts, hats, pants, bags, accessories, shoes, skate
+    t1 = threading.Thread(target=supreme.findItem, args=(['clippers'], ['red'], 'accessories'))
+    #t2 = threading.Thread(target=supreme.findItem, args=(['velour'], ['black'], 'sweaters')) #???
+   # t3 = threading.Thread(target=supreme.findItem, args=(['plant', 'tee'], ['pale'], 'tshirts'))
+    #t2 = threading.Thread(target=supreme.findItem, args=(['knife'], [''], 'accessories'))
     t1.start()
-    t2.start()
+    #t2.start()
+   # t3.start()
     t1.join()
-    t2.join()
+    #t2.join()
+   # t3.join()
