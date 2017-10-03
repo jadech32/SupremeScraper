@@ -98,6 +98,7 @@ ENV/
 # mypy
 .mypy_cache/
 config/config.json
+config/proxies.txt
 
 
 .idea/
