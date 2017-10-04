@@ -21,6 +21,9 @@ Scrapes the online shop for products, searched by name, color and category. This
 - accessories
 - shoes
 - skate
+### Proxy Support
+
+Under the ```config``` folder, please create a ```proxies.txt``` and paste your HTTP proxies line by line.
 
 ### Example Thread
 ```

@@ -53,7 +53,7 @@ class Supreme:
                 empty_warn = 1
         else:
             current_proxy = self.proxy.getProxy()[self.proxy.countProxy()]
-            log('Using proxy ' + str(current_proxy))
+            log('Using proxy ' + str(current_proxy['http']),'yellow')
             response = session.get(url, proxies=current_proxy)
             if(response.status_code != 200):
                 log('Proxy banned','info')
