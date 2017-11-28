@@ -23,7 +23,9 @@ Scrapes the online shop for products, searched by name, color and category. This
 - skate
 ### Proxy Support
 
-Create a ```config``` folder, and under that please create a ```proxies.txt``` and paste your HTTP proxies line by line.
+- Create a ```config``` folder, and under that please create a ```proxies.txt``` and paste your HTTP proxies line by line.
+- Now supports ```user:pass``` proxies as well as non auth proxies.
+- Does not have support for non proxy scraping (use localhost).
 
 ### Example Thread
 ```
