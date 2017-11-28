@@ -18,15 +18,30 @@ class Proxy:
     def __init__(self):
         self.proxies = self.importProxy()
         self.countOG = len(self.proxies) - 1
-        self.count = randint(0,len(self.proxies) - 1)
+        self.count = randint(0, len(self.proxies) - 1)
 
     def importProxy(self):
-        results = []
+
+        moreResults = list()
         with open('config/proxies.txt', newline='') as inputfile:
             for row in csv.reader(inputfile):
-                results.append(row)
+                splitted = row[0].split(":")
 
-        return list(map(lambda x: {'http': 'http://'+x}, list(itertools.chain.from_iterable(results))))
+                if len(splitted) == 2:
+                    proxObj = {
+                        'http': 'http://' + row[0],
+                        'https': 'https://' + row[0]
+                    }
+                    moreResults.append(proxObj)
+
+                if len(splitted) == 4:
+                    proxObj = {
+                        'http': 'http://' + splitted[2] + ':' + splitted[3] + '@' + splitted[0] + ':' + splitted[1],
+                        'https': 'https://' + splitted[2] + ':' + splitted[3] + '@' + splitted[0] + ':' + splitted[1]
+                    }
+                    moreResults.append(proxObj)
+
+        return moreResults
 
     def getProxy(self):
         return self.proxies
