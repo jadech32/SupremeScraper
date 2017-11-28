@@ -8,7 +8,6 @@ from classes.proxies import Proxy
 log = Logger().log
 
 if __name__ == '__main__':
-    print(Proxy().getProxy())
 
     supreme = Supreme()
     # Make sure to IP Authenticate your proxies!
